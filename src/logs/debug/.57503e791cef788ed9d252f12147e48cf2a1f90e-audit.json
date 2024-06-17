@@ -1,0 +1,55 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\.57503e791cef788ed9d252f12147e48cf2a1f90e-audit.json",
+    "files": [
+        {
+            "date": 1709840642572,
+            "name": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\2024-03-07.log",
+            "hash": "e6091a4160c503de3302011596f1500bb4689591a442d2b4ee858f8959516858"
+        },
+        {
+            "date": 1709973431796,
+            "name": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\2024-03-09.log",
+            "hash": "2576133640801fd54b17ddc9994c47d9734a622350cbbdb6e299d507cadfaa93"
+        },
+        {
+            "date": 1710264170491,
+            "name": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\2024-03-12.log",
+            "hash": "a3821a800bb8d0eeeb97fdf2317e4ca637ab2cc758f4a260f138c2fc21481d69"
+        },
+        {
+            "date": 1710947378885,
+            "name": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\2024-03-20.log",
+            "hash": "5a4c1ff04929c3e233038c2c6cbb1267613ce4da71ff207739fd483e5aad86c7"
+        },
+        {
+            "date": 1711205819899,
+            "name": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\2024-03-23.log",
+            "hash": "ffaaeac1ac404e9b72844a4565ca341ac129274042d53797ce904fcca3d6f9f8"
+        },
+        {
+            "date": 1712694804837,
+            "name": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\2024-04-09.log",
+            "hash": "af961a42e4e9f4e3f8ca1ec23e96af5da9c441551916372264efc16e12c3b945"
+        },
+        {
+            "date": 1713894118741,
+            "name": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\2024-04-23.log",
+            "hash": "ff2b29b30cc01e54d57fdfd7f67b0944ac7af86ff42e227ecef7caff2cb513c6"
+        },
+        {
+            "date": 1713976933679,
+            "name": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\2024-04-24.log",
+            "hash": "4fe2f9a90c508bb0524f3a831db71221cc3120936aee63ab5ce24cf111e13b93"
+        },
+        {
+            "date": 1714066441178,
+            "name": "D:\\Projects\\MojaM\\backend\\src\\logs\\debug\\2024-04-25.log",
+            "hash": "274e774363227ddb59f77d249ab816d58947def31f06c17b29d38c4c17777ee1"
+        }
+    ],
+    "hashType": "sha256"
+}

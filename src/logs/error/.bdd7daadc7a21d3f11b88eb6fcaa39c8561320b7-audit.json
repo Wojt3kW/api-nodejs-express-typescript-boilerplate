@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "D:\\Projects\\api-nodejs-express-typescript-boilerplate\\src\\logs\\error\\.bdd7daadc7a21d3f11b88eb6fcaa39c8561320b7-audit.json",
+    "files": [
+        {
+            "date": 1718647270131,
+            "name": "D:\\Projects\\api-nodejs-express-typescript-boilerplate\\src\\logs\\error\\2024-06-17.log",
+            "hash": "a52ef9a2377a171e9e93af745a86a8e924174dac8df81aa04fa5a6f46bacf8fa"
+        }
+    ],
+    "hashType": "sha256"
+}

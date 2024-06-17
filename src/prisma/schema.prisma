@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id                  Int       @id @default(autoincrement()) @map("Id") @db.Int
+  uuid                String    @unique(map: "UQ_User_Uuid") @default(uuid()) @map("Uuid") @db.VarChar(36)
+  email               String    @map("Email") @db.VarChar(320)
+  emailConfirmed      Boolean   @default(false) @map("EmailConfirmed") @db.TinyInt()
+  phone               String    @map("Phone") @db.VarChar(30)
+  phoneConfirmed      Boolean   @default(false) @map("PhoneConfirmed") @db.TinyInt()
+  password            String    @map("Password") @db.VarChar(1024)
+  salt                String    @map("Salt") @db.VarChar(64)
+  firstName           String?   @map("FirstName") @db.VarChar(255)
+  lastName            String?   @map("LastName") @db.VarChar(255)
+  birthDay            DateTime? @map("BirthDay") @db.Date
+  joiningYear         DateTime? @map("JoiningYear") @db.Date
+  isActive            Boolean   @default(false) @map("IsActive") @db.TinyInt()
+  createdAt           DateTime  @default(now()) @map("CreatedAt") @db.Timestamp(0)
+  updatedAt           DateTime? @map("UpdatedAt") @db.Timestamp(0)
+  lastLoginAt         DateTime? @map("LastLoginAt") @db.Timestamp(0)
+  failedLoginAttempts Int       @default(0) @map("FailedLoginAttempts") @db.Int
+  isLockedOut         Boolean   @default(false) @map("IsLockedOut") @db.TinyInt()
+
+  systemPermissions         UserSystemPermission[] @relation("User")
+  assignedSystemPermissions UserSystemPermission[] @relation("AssignedBy")
+
+  @@unique([email, phone], map: "UQ_User_Email_Phone")
+  @@map("Users")
+}
+
+model SystemPermission {
+  id          Int    @id @map("Id") @db.Int
+  parentId    Int?   @map("ParentId") @db.Int
+  name        String @map("Name") @db.VarChar(50)
+  description String @map("Description") @db.VarChar(255)
+
+  children SystemPermission[]     @relation("children")
+  parent   SystemPermission?      @relation("children", fields: [parentId], references: [id], map: "FK_SystemPermission_ParentId")
+  Users    UserSystemPermission[]
+
+  @@map("System_Permissions")
+}
+
+model UserSystemPermission {
+  user         User             @relation("User", fields: [userId], references: [id], map: "FK_UserSystemPermission_To_User_UserId")
+  userId       Int              @map("UserId") @db.Int
+  permission   SystemPermission @relation(fields: [permissionId], references: [id], map: "FK_UserSystemPermission_To_SystemPermission")
+  permissionId Int              @map("PermissionId") @db.Int
+  assignedAt   DateTime         @default(now()) @map("AssignedAt") @db.Timestamp(0)
+  assignedById Int              @map("AssignedById") @db.Int
+  assignedBy   User             @relation("AssignedBy", fields: [assignedById], references: [id], map: "FK_UserSystemPermission_To_User_AssignedById")
+
+  @@id([userId, permissionId])
+  @@map("User_To_SystemPermissions")
+}
